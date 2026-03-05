@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Galactic Dictionary</title>
+<style>
+
+    body {
+        font-family: sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background: #f5f5f5;
+        font-family: sans-serif;
+    }
+
+    body, table, td, th, input, h1 {
+    font-family: sans-serif !important;
+    }
+
+</style>
+</head>
+<body>
+
+<h1>Global Galactic Dictionary</h1>
+
+<input type="text" id="search" placeholder="Search...">
+
+<table id="dictTable">
+    <thead>
+        <tr>
+            <th>English</th>
+            <th>GGL</th>
+            <th>Latin Alphabet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GGL</td>
+            <td>⊣⊣|:</td>
+            <td>GGL</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+const search = document.getElementById('search');
+const rows = document.querySelectorAll('#dictTable tbody tr');
+
+search.addEventListener('keyup', function() {
+    const value = this.value.toLowerCase();
+    rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(value)
+            ? ''
+            : 'none';
+    });
+});
+</script>
+
+</body>
+</html>
